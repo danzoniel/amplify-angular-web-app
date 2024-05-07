@@ -7,6 +7,10 @@
             *ngFor="let todo of todos;">
             {{ todo.content }}
         </li>
+        <li 
+            *ngFor="let todo of todos;" (click)="deleteTodo(todo.id)">
+            {{ todo.content }}
+        </li>
     </ul>
     <div>
         🥳 App successfully hosted. Try creating a new todo.
