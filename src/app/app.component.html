@@ -1,4 +1,6 @@
-<amplify-authenticator [formFields]=>
+<amplify-authenticator [formFields] 
+    [socialProviders]="['amazon', 'apple', 'facebook', 'google']"
+    >
     <ng-template amplifySlot="header">
       <div style="padding: var(--amplify-space-large); text-align: center">
       </div>
