@@ -35,7 +35,6 @@ export class TodosComponent implements OnInit {
     try {
       client.models.Todo.create({
         content: window.prompt('Todo content'),
-        isDone: false,
       });
       this.listTodos();
     } catch (error) {
