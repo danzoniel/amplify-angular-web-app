@@ -1,0 +1,6 @@
+ul {
+    list-style: none;
+    display: flex;
+    justify-items: space-around;
+    align-items: space-around;
+}
