@@ -94,10 +94,154 @@
 8. **Portabilidade:**
    - **Adaptabilidade e Instalabilidade:** O uso de serviços baseados em nuvem da AWS facilita a adaptação e instalação em diferentes ambientes e configurações.
 
-## Reference links
+## Estimativa de custos ##
 
-https://docs.amplify.aws/angular/start/account-setup/
-https://docs.amplify.aws/angular/start/quickstart/
+# Estimativa de Custos da Arquitetura AWS
+
+A seguir, apresentamos uma estimativa de custos para a arquitetura descrita, utilizando valores genéricos para o uso mensal dos serviços.
+
+## Valores Assumidos
+1. **Número de usuários mensais**: 1,000
+2. **Número de autenticações por usuário**: 10
+3. **Número de chamadas de API por mês**: 50,000
+4. **Número de funções Lambda**: 5, com uma duração média de 200 ms, executadas 100,000 vezes por mês cada
+5. **Quantidade de dados IoT publicados mensalmente**: 10 GB
+6. **Número de leituras e gravações no DynamoDB**: 100,000 de cada
+
+## Estimativa de Custos
+
+### AWS Amplify
+- Hospedagem e autenticação básica: $50 por mês
+
+### Amazon Cognito
+- Autenticações: 1,000 usuários * 10 autenticações = 10,000 autenticações
+- Preço: $0.0055 por autenticação após os primeiros 50,000 autenticações gratuitas por mês
+- **Custo estimado**: $0 (dentro do limite gratuito)
+
+### Amazon API Gateway
+- 50,000 chamadas de API
+- Preço: $3.50 por milhão de solicitações
+- **Custo estimado**: \( 50,000 / 1,000,000 \) * $3.50 = $0.175
+
+### AWS Lambda
+- 5 funções, cada uma executada 100,000 vezes por mês: 5 * 100,000 = 500,000 execuções
+- Duração média: 200 ms (0.2 segundos)
+- Preço: $0.20 por 1 milhão de solicitações + $0.00001667 por GB-s de computação
+- Memória média assumida: 128 MB
+- **Custo estimado**:
+  - Solicitações: \( 500,000 / 1,000,000 \) * $0.20 = $0.10
+  - GB-s de computação: \( 500,000 * 0.2 / 1000 \) * 128 / 1024 * $0.00001667 = $0.20
+  - Total: $0.10 + $0.20 = $0.30
+
+### AWS IoT Core
+- 10 GB de dados publicados
+- Preço: $1.00 por milhão de mensagens publicadas (assumindo 1 KB por mensagem)
+- **Custo estimado**: \( 10 * 1024 \) / 1,000,000 * $1.00 = $0.01
+
+### Amazon Kinesis Data Stream
+- Supondo 1 shard, e que 10 GB de dados são divididos em mensagens de 25 KB
+- Preço: $0.015 por shard-hora + $0.014 por milhão de registros (25 KB por registro)
+- **Custo estimado**:
+  - Shard-horas: 1 * 24 * 30 * $0.015 = $10.80
+  - Registros: \( 10 * 1024 * 1024 / 25 \) / 1,000,000 * $0.014 = $5.74
+  - Total: $10.80 + $5.74 = $16.54
+
+### Amazon DynamoDB
+- 100,000 leituras e 100,000 gravações
+- Preço: $1.25 por unidade de capacidade de leitura e $1.25 por unidade de capacidade de gravação, ambos por segundo-mês (provisão mínima)
+- Assumindo uso em modo on-demand:
+  - $1.25 por milhão de solicitações de leitura/gravação
+- **Custo estimado**: \( 100,000 / 1,000,000 \) * $1.25 + \( 100,000 / 1,000,000 \) * $1.25 = $0.25
+
+## Total Estimado Mensal
+1. AWS Amplify: $50.00
+2. Amazon Cognito: $0.00
+3. Amazon API Gateway: $0.175
+4. AWS Lambda: $0.30
+5. AWS IoT Core: $0.01
+6. Amazon Kinesis Data Stream: $16.54
+7. Amazon DynamoDB: $0.25
+
+**Total: $67.275 por mês**
+
+Essa é uma estimativa básica e genérica. Para um orçamento mais preciso, ajustes específicos no uso dos serviços e consulta direta à calculadora de preços da AWS seriam recomendados.
+
+# Estimativa de Esforço para Implementação da Arquitetura AWS
+
+A seguir, apresentamos uma estimativa de esforço para a implementação da arquitetura descrita, incluindo configuração de serviços, desenvolvimento e testes.
+
+## Componentes da Arquitetura
+
+1. **AWS Amplify**
+2. **Amazon Cognito**
+3. **Amazon API Gateway**
+4. **AWS Lambda**
+5. **AWS IoT Core**
+6. **Amazon Kinesis Data Stream**
+7. **Amazon DynamoDB**
+8. **MQTT Protocol (usado no AWS IoT Core)**
+
+## Estimativa de Esforço
+
+### 1. AWS Amplify
+- **Configuração e Deploy**: 8 horas
+- **Configuração do Frontend**: 16 horas
+- **Total**: 24 horas
+
+### 2. Amazon Cognito
+- **Configuração de Usuários e Grupos**: 4 horas
+- **Integração com Amplify**: 4 horas
+- **Total**: 8 horas
+
+### 3. Amazon API Gateway
+- **Configuração de Endpoints**: 8 horas
+- **Criação de Regras e Integrations**: 8 horas
+- **Total**: 16 horas
+
+### 4. AWS Lambda
+- **Desenvolvimento de Funções Lambda (5 funções)**: 5 * 8 horas = 40 horas
+- **Configuração e Deploy**: 8 horas
+- **Total**: 48 horas
+
+### 5. AWS IoT Core
+- **Configuração de IoT Core**: 8 horas
+- **Configuração de IoT Rule**: 8 horas
+- **Total**: 16 horas
+
+### 6. Amazon Kinesis Data Stream
+- **Configuração de Shards**: 4 horas
+- **Configuração de Streams**: 4 horas
+- **Total**: 8 horas
+
+### 7. Amazon DynamoDB
+- **Configuração de Tabelas**: 4 horas
+- **Configuração de Índices e Capacidade**: 4 horas
+- **Total**: 8 horas
+
+### 8. MQTT Protocol
+- **Configuração do Protocolo MQTT no IoT Core**: 4 horas
+- **Teste e Validação da Comunicação**: 4 horas
+- **Total**: 8 horas
+
+## Testes e Validação
+- **Testes de Integração**: 16 horas
+- **Testes de Performance**: 16 horas
+- **Total**: 32 horas
+
+## Esforço Total Estimado
+- **Configuração e Desenvolvimento**: 136 horas
+- **Testes e Validação**: 32 horas
+- **Total**: 168 horas
+
+## Distribuição de Esforço por Semana
+Assumindo uma equipe de 4 desenvolvedores, a distribuição do esforço pode ser feita da seguinte maneira:
+
+- **Semana 1**: Configuração inicial dos serviços AWS (Amplify, Cognito, API Gateway, IoT Core)
+- **Semana 2**: Desenvolvimento das funções Lambda e configuração do Kinesis Data Stream e DynamoDB
+- **Semana 3**: Integração dos componentes, configuração do MQTT Protocol e testes iniciais
+- **Semana 4**: Testes de Integração, Testes de Performance e ajustes finais
+
+**Total de Tempo Estimado**: 2 semanas (considerando uma equipe de 4 desenvolvedores)
 
 ## AWS Amplify Angular.js Starter Template
 
