@@ -94,10 +94,78 @@
 8. **Portabilidade:**
    - **Adaptabilidade e Instalabilidade:** O uso de serviços baseados em nuvem da AWS facilita a adaptação e instalação em diferentes ambientes e configurações.
 
-## Reference links
+## Estimativa de custos ##
 
-https://docs.amplify.aws/angular/start/account-setup/
-https://docs.amplify.aws/angular/start/quickstart/
+# Estimativa de Custos da Arquitetura AWS
+
+A seguir, apresentamos uma estimativa de custos para a arquitetura descrita, utilizando valores genéricos para o uso mensal dos serviços.
+
+## Valores Assumidos
+1. **Número de usuários mensais**: 1,000
+2. **Número de autenticações por usuário**: 10
+3. **Número de chamadas de API por mês**: 50,000
+4. **Número de funções Lambda**: 5, com uma duração média de 200 ms, executadas 100,000 vezes por mês cada
+5. **Quantidade de dados IoT publicados mensalmente**: 10 GB
+6. **Número de leituras e gravações no DynamoDB**: 100,000 de cada
+
+## Estimativa de Custos
+
+### AWS Amplify
+- Hospedagem e autenticação básica: $50 por mês
+
+### Amazon Cognito
+- Autenticações: 1,000 usuários * 10 autenticações = 10,000 autenticações
+- Preço: $0.0055 por autenticação após os primeiros 50,000 autenticações gratuitas por mês
+- **Custo estimado**: $0 (dentro do limite gratuito)
+
+### Amazon API Gateway
+- 50,000 chamadas de API
+- Preço: $3.50 por milhão de solicitações
+- **Custo estimado**: \( 50,000 / 1,000,000 \) * $3.50 = $0.175
+
+### AWS Lambda
+- 5 funções, cada uma executada 100,000 vezes por mês: 5 * 100,000 = 500,000 execuções
+- Duração média: 200 ms (0.2 segundos)
+- Preço: $0.20 por 1 milhão de solicitações + $0.00001667 por GB-s de computação
+- Memória média assumida: 128 MB
+- **Custo estimado**:
+  - Solicitações: \( 500,000 / 1,000,000 \) * $0.20 = $0.10
+  - GB-s de computação: \( 500,000 * 0.2 / 1000 \) * 128 / 1024 * $0.00001667 = $0.20
+  - Total: $0.10 + $0.20 = $0.30
+
+### AWS IoT Core
+- 10 GB de dados publicados
+- Preço: $1.00 por milhão de mensagens publicadas (assumindo 1 KB por mensagem)
+- **Custo estimado**: \( 10 * 1024 \) / 1,000,000 * $1.00 = $0.01
+
+### Amazon Kinesis Data Stream
+- Supondo 1 shard, e que 10 GB de dados são divididos em mensagens de 25 KB
+- Preço: $0.015 por shard-hora + $0.014 por milhão de registros (25 KB por registro)
+- **Custo estimado**:
+  - Shard-horas: 1 * 24 * 30 * $0.015 = $10.80
+  - Registros: \( 10 * 1024 * 1024 / 25 \) / 1,000,000 * $0.014 = $5.74
+  - Total: $10.80 + $5.74 = $16.54
+
+### Amazon DynamoDB
+- 100,000 leituras e 100,000 gravações
+- Preço: $1.25 por unidade de capacidade de leitura e $1.25 por unidade de capacidade de gravação, ambos por segundo-mês (provisão mínima)
+- Assumindo uso em modo on-demand:
+  - $1.25 por milhão de solicitações de leitura/gravação
+- **Custo estimado**: \( 100,000 / 1,000,000 \) * $1.25 + \( 100,000 / 1,000,000 \) * $1.25 = $0.25
+
+## Total Estimado Mensal
+1. AWS Amplify: $50.00
+2. Amazon Cognito: $0.00
+3. Amazon API Gateway: $0.175
+4. AWS Lambda: $0.30
+5. AWS IoT Core: $0.01
+6. Amazon Kinesis Data Stream: $16.54
+7. Amazon DynamoDB: $0.25
+
+**Total: $67.275 por mês**
+
+Essa é uma estimativa básica e genérica. Para um orçamento mais preciso, ajustes específicos no uso dos serviços e consulta direta à calculadora de preços da AWS seriam recomendados.
+
 
 ## AWS Amplify Angular.js Starter Template
 
