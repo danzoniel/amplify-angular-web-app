@@ -166,6 +166,82 @@ A seguir, apresentamos uma estimativa de custos para a arquitetura descrita, uti
 
 Essa é uma estimativa básica e genérica. Para um orçamento mais preciso, ajustes específicos no uso dos serviços e consulta direta à calculadora de preços da AWS seriam recomendados.
 
+# Estimativa de Esforço para Implementação da Arquitetura AWS
+
+A seguir, apresentamos uma estimativa de esforço para a implementação da arquitetura descrita, incluindo configuração de serviços, desenvolvimento e testes.
+
+## Componentes da Arquitetura
+
+1. **AWS Amplify**
+2. **Amazon Cognito**
+3. **Amazon API Gateway**
+4. **AWS Lambda**
+5. **AWS IoT Core**
+6. **Amazon Kinesis Data Stream**
+7. **Amazon DynamoDB**
+8. **MQTT Protocol (usado no AWS IoT Core)**
+
+## Estimativa de Esforço
+
+### 1. AWS Amplify
+- **Configuração e Deploy**: 8 horas
+- **Configuração do Frontend**: 16 horas
+- **Total**: 24 horas
+
+### 2. Amazon Cognito
+- **Configuração de Usuários e Grupos**: 4 horas
+- **Integração com Amplify**: 4 horas
+- **Total**: 8 horas
+
+### 3. Amazon API Gateway
+- **Configuração de Endpoints**: 8 horas
+- **Criação de Regras e Integrations**: 8 horas
+- **Total**: 16 horas
+
+### 4. AWS Lambda
+- **Desenvolvimento de Funções Lambda (5 funções)**: 5 * 8 horas = 40 horas
+- **Configuração e Deploy**: 8 horas
+- **Total**: 48 horas
+
+### 5. AWS IoT Core
+- **Configuração de IoT Core**: 8 horas
+- **Configuração de IoT Rule**: 8 horas
+- **Total**: 16 horas
+
+### 6. Amazon Kinesis Data Stream
+- **Configuração de Shards**: 4 horas
+- **Configuração de Streams**: 4 horas
+- **Total**: 8 horas
+
+### 7. Amazon DynamoDB
+- **Configuração de Tabelas**: 4 horas
+- **Configuração de Índices e Capacidade**: 4 horas
+- **Total**: 8 horas
+
+### 8. MQTT Protocol
+- **Configuração do Protocolo MQTT no IoT Core**: 4 horas
+- **Teste e Validação da Comunicação**: 4 horas
+- **Total**: 8 horas
+
+## Testes e Validação
+- **Testes de Integração**: 16 horas
+- **Testes de Performance**: 16 horas
+- **Total**: 32 horas
+
+## Esforço Total Estimado
+- **Configuração e Desenvolvimento**: 136 horas
+- **Testes e Validação**: 32 horas
+- **Total**: 168 horas
+
+## Distribuição de Esforço por Semana
+Assumindo uma equipe de 4 desenvolvedores, a distribuição do esforço pode ser feita da seguinte maneira:
+
+- **Semana 1**: Configuração inicial dos serviços AWS (Amplify, Cognito, API Gateway, IoT Core)
+- **Semana 2**: Desenvolvimento das funções Lambda e configuração do Kinesis Data Stream e DynamoDB
+- **Semana 3**: Integração dos componentes, configuração do MQTT Protocol e testes iniciais
+- **Semana 4**: Testes de Integração, Testes de Performance e ajustes finais
+
+**Total de Tempo Estimado**: 2 semanas (considerando uma equipe de 4 desenvolvedores)
 
 ## AWS Amplify Angular.js Starter Template
 
