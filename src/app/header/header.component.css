@@ -1,6 +1,100 @@
-ul {
+:root {
+    --background-image-url: url('../../assets/background-200.jpg');
+    --header-padding: 10px 20px;
+    --logo-width: 250px; 
+    --header-title-font-size: 2em;
+    --header-title-color: #003366;
+    --climate-info-font-size: 1em;
+    --climate-info-color: #003366;
+    --climate-info-extra-font-size: 0.9em;
+  }
+
+.header {
+    padding: var(--header-padding);
+    height: 50vh;
+    background-image: var(--background-image-url);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    height: 100%;
+  }
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation__list {
     list-style: none;
     display: flex;
-    justify-items: space-around;
-    align-items: space-around;
+    width: 100%;
+    justify-content: space-between;
+}
+  
+.navigation__item {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__item--logo .logo__image {
+    width: var(--logo-width);
+}
+
+.navigation__item--login .login__link {
+    font-size: var(--font-size-login);
+    color: var(--login-color);
+    text-decoration: none;
+}
+
+.header-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.header-title {
+    font-size: var(--header-title-font-size);
+    color: var(--header-title-color);
+}
+
+.climate-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: var(--climate-info-color);
+}
+
+.climate-info__icon img {
+    width: 50px;
+    margin-right: 20px;
+}
+
+.climate-info__details,
+.climate-info__extra {
+  text-align: left;
+  margin-right: 20px;
+}
+
+.climate-info__temperature {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.climate-info__description {
+    font-size: var(--climate-info-font-size);
+}
+  
+.climate-info__day {
+    font-size: var(--climate-info-extra-font-size);
+    font-weight: bold;
+}
+  
+.climate-info__forecast {
+    font-size: var(--climate-info-extra-font-size);
 }
