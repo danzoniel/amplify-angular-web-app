@@ -3,14 +3,16 @@
     --header-padding: 10px 20px;
     --logo-width: 250px; 
     --header-title-font-size: 2em;
-    --header-title-color: #003366;
+    --header-title-color: #005E78;
+    --login-navigation-item-color: #005E78;
+    --login-navigation-item-font-size: 2em;
     --climate-info-font-size: 1em;
     --climate-info-color: #003366;
     --climate-info-extra-font-size: 0.9em;
   }
 
 .header {
-    padding: var(--header-padding);
+    padding: var(--header-padding); 
     height: 50vh;
     background-image: var(--background-image-url);
     background-size: cover; 
@@ -47,8 +49,8 @@
 }
 
 .navigation__item--login .login__link {
-    font-size: var(--font-size-login);
-    color: var(--login-color);
+    font-size: var(--login-navigation-item-font-size);
+    color: var(--login-navigation-item-color);
     text-decoration: none;
 }
 
@@ -83,6 +85,12 @@
 
 .climate-info__temperature {
     font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+}
+
+.climate-info-minor__temperature {
+    font-size: 0.5em;
     font-weight: bold;
 }
 
