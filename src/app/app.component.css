@@ -1,4 +1,15 @@
-[data-amplify-authenticator] {
-    --amplify-components-authenticator-router-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --amplify-components-button-primary-background-color: #ffffff; /* Botões brancos */
-}
+:host {
+    /* --background-image: var(--background-image-url);
+    --background-size: cover;
+    --background-position: center;
+    --background-repeat: no-repeat; */
+    --height: 100vh;
+  
+    display: block;
+    height: var(--height);
+    background-color: var(--background-color);
+    /* background-image: var(--background-image);
+    background-size: var(--background-size);
+    background-position: var(--background-position);
+    background-repeat: var(--background-repeat); */
+  }

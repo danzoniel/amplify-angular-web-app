@@ -1,0 +1,141 @@
+<amplify-authenticator 
+    variation="modal"
+    [socialProviders]="['google']"
+    >
+    <ng-template amplifySlot="header">
+      <div style="padding: var(--amplify-space-large); text-align: center">
+      </div>
+    </ng-template>
+  
+    <ng-template amplifySlot="sign-in-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Entrar na conta
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="sign-in-footer">
+      <div style="text-align: center">
+        <button
+          (click)="authenticator.toForgotPassword()"
+          class="amplify-button amplify-field-group__control"
+          data-fullwidth="false"
+          data-size="small"
+          data-variation="link"
+          type="button"
+          style="font-weight: normal"
+        >
+          Resetar senha
+        </button>
+      </div>
+    </ng-template>
+  
+    <ng-template amplifySlot="sign-up-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Criar Conta
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="sign-up-footer">
+      <div style="text-align: center">
+        <button
+          (click)="authenticator.toSignIn()"
+          class="amplify-button amplify-field-group__control"
+          data-fullwidth="false"
+          data-size="small"
+          data-variation="link"
+          type="button"
+          style="font-weight: normal"
+        >
+          Voltar para início
+        </button>
+      </div>
+    </ng-template>
+  
+    <ng-template amplifySlot="footer">
+      <div style="padding: var(--amplify-space-large); text-align: center">
+        <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
+          © All Rights Reserved
+        </p>
+      </div>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-sign-up-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Enter Information:
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-sign-up-footer">
+      <div>Footer Information</div>
+    </ng-template>
+  
+    <ng-template amplifySlot="setup-totp-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Enter Information:
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="setup-totp-footer">
+      <div>Footer Information</div>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-sign-in-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Enter Information:
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-sign-in-footer">
+      <div>Footer Information</div>
+    </ng-template>
+  
+    <ng-template amplifySlot="forgot-password-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Enter Information:
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="forgot-password-footer">
+      <div>Footer Information</div>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-reset-password-header">
+      <h3
+        class="amplify-heading"
+        style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+      >
+        Enter Information:
+      </h3>
+    </ng-template>
+  
+    <ng-template amplifySlot="confirm-reset-password-footer">
+      <div>Footer Information</div>
+    </ng-template>
+  
+    <ng-template
+      amplifySlot="authenticated"
+      let-user="user"
+      let-signOut="signOut"
+    >
+      <h2>Welcome, {{ user.username }}!</h2>
+      <button (click)="signOut()">Sign Out</button>
+    </ng-template>
+  </amplify-authenticator>
