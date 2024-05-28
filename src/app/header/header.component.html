@@ -6,7 +6,8 @@
                     <img src="assets/aquaguardian-logo-svg.svg" alt="aquaguardian logo" class="logo__image">
                 </li>
                 <li class="navigation__item navigation__item--login">
-                    <a href="/login" class="login__link">login</a>
+                    <a href="#" class="login__link" (click)="showAuthComponent($event)">login</a>
+                    <app-auth *ngIf="isAuthVisible"></app-auth>
                 </li>
             </ul>
         </nav>
