@@ -13,11 +13,11 @@
   }
   
   .dashboard-map__left {
-    background-color: #f0f2f5; /* Cor de fundo para o dashboard */
+    background-color: #FBFDFE; /* Cor de fundo para o dashboard */
   }
   
   .dashboard-map__right {
-    background-color: #fff; /* Cor de fundo para o mapa */
+    background-color: #FBFDFE; /* Cor de fundo para o mapa */
     border-left: 1px solid #e0e0e0; /* Linha divisória */
   }
   
@@ -28,7 +28,7 @@
   
   .chart {
     margin-bottom: 20px;
-    background: #fff;
+    background: #FBFDFE;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
