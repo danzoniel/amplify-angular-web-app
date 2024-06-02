@@ -12,8 +12,8 @@ import * as L from 'leaflet';
 export class AppMapComponent implements OnInit {
 
   map: L.Map | undefined;
-  latitude: number = 51.505; // Coordenada padrão
-  longitude: number = -0.09; // Coordenada padrão
+  latitude: number = -23.7377748; // Coordenada padrão
+  longitude: number = -46.5863227; // Coordenada padrão
 
   ngOnInit(): void {
     this.loadMap();
@@ -30,7 +30,7 @@ export class AppMapComponent implements OnInit {
     this.map = L.map('map').setView([this.latitude, this.longitude], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
 
     L.marker([this.latitude, this.longitude]).addTo(this.map)
