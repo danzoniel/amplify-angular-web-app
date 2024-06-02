@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
 import { EChartsOption } from 'echarts';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [CommonModule, NgxEchartsDirective],
+  imports: [CommonModule, NgxEchartsDirective, NgxGaugeModule],
   templateUrl: './app-chart.component.html',
   styleUrl: './app-chart.component.css',
   providers: [
@@ -31,4 +32,9 @@ export class AppChartComponent {
       },
     ],
   };
+
+  gaugeType = "semi";
+  gaugeValue = 28.3;
+  gaugeLabel = "Speed";
+  gaugeAppendText = "km/hr"; 
 }

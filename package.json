@@ -25,6 +25,7 @@
     "echarts": "^5.5.0",
     "ng2-charts": "^3.1.0",
     "ngx-echarts": "^18.0.0",
+    "ngx-gauge": "^9.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
