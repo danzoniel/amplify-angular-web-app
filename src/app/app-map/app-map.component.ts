@@ -12,8 +12,12 @@ import * as L from 'leaflet';
 export class AppMapComponent implements OnInit {
 
   map: L.Map | undefined;
-  latitude: number = -23.7377748; // Coordenada padrão
-  longitude: number = -46.5863227; // Coordenada padrão
+  initialLatitude: number = -23.7377748; // Coordenada inicial
+  initialLongitude: number = -46.5863227; // Coordenada inicial
+  initialZoom: number = 13; // Zoom inicial
+
+  latitude: number = this.initialLatitude;
+  longitude: number = this.initialLongitude;
 
   ngOnInit(): void {
     this.loadMap();
@@ -44,6 +48,23 @@ export class AppMapComponent implements OnInit {
 
       L.marker([this.latitude, this.longitude]).addTo(this.map)
         .bindPopup('Nova Localização.')
+        .openPopup();
+    }
+  }
+
+  resetMap(): void {
+    if (this.map) {
+      this.map.setView([this.initialLatitude, this.initialLongitude], this.initialZoom);
+
+      // Opcional: remover todos os marcadores antes de adicionar o marcador inicial novamente
+      this.map.eachLayer((layer) => {
+        if (layer instanceof L.Marker) {
+          this.map?.removeLayer(layer);
+        }
+      });
+
+      L.marker([this.initialLatitude, this.initialLongitude]).addTo(this.map)
+        .bindPopup('Localização Inicial.')
         .openPopup();
     }
   }
