@@ -3,14 +3,15 @@
     <div class="dashboard-map__left">
         <h2>Dashboard</h2>
         <!-- Aqui você pode incluir seus componentes de gráficos -->
-        <div class="chart" *ngFor="let chart of charts">
+        <div class="chart"> 
+            <!-- *ngFor="let chart of charts"> -->
             <!-- Substitua com o componente real do gráfico -->
-            <app-chart [data]="chart.data" [options]="chart.options"></app-chart>
+            <app-chart></app-chart>
         </div>
     </div>
     <div class="dashboard-map__right">
         <h2>Mapa</h2>
         <!-- Aqui você pode incluir seu componente de mapa -->
-        <app-map [config]="mapConfig"></app-map>
+        <app-map></app-map>
     </div>
 </main>

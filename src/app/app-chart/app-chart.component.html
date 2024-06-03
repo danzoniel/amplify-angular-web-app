@@ -1,0 +1,10 @@
+<div class="time-filters">
+    <button (click)="onTimeFilterChange('5min')">Últimos 5 min</button>
+    <button (click)="onTimeFilterChange('30min')">Últimos 30 min</button>
+</div>
+<ngx-gauge 
+           [value]="gaugeValue" 
+           [label]="gaugeLabel"  
+           [append]="gaugeAppendText">
+</ngx-gauge>
+<div echarts [options]="chartOption" class="demo-chart"></div>
