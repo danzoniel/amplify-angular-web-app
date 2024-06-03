@@ -42,7 +42,6 @@ export class AppChartComponent implements OnInit, OnDestroy {
       client.models.Sensor.observeQuery().subscribe({
         next: ({ items, isSynced }) => {
           this.sensors = items;
-          // Inicializa o gráfico com valores de currentWaterLevel dos sensores
           this.updateLineChartData();
         },
       });
@@ -97,7 +96,7 @@ export class AppChartComponent implements OnInit, OnDestroy {
   startAutoUpdate() {
     this.updateInterval = setInterval(() => {
       this.updateSensors();
-    }, 5000); // 60000ms = 60s
+    }, 10000);
   }
 
   stopAutoUpdate() {
@@ -110,7 +109,7 @@ export class AppChartComponent implements OnInit, OnDestroy {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: [], // Inicialmente vazio
+      data: [], 
     },
     yAxis: {
       type: 'value',
