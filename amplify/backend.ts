@@ -8,11 +8,11 @@ import { myDynamoDBFunction } from './functions/dynamoDB-function/resource';
 const backend = defineBackend({
   auth,
   data,
-  myDynamoDBFunction,
+  // myDynamoDBFunction,
 });
 
-const eventSource = new DynamoEventSource(backend.data.resources.tables["Todo"], {
-  startingPosition: StartingPosition.LATEST,
-});
+// const eventSource = new DynamoEventSource(backend.data.resources.tables["Todo"], {
+//   startingPosition: StartingPosition.LATEST,
+// });
 
-backend.myDynamoDBFunction.resources.lambda.addEventSource(eventSource);
+// backend.myDynamoDBFunction.resources.lambda.addEventSource(eventSource);

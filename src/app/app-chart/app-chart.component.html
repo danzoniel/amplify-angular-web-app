@@ -1,10 +1,30 @@
-<div class="time-filters">
-    <button (click)="onTimeFilterChange('5min')">Últimos 5 min</button>
-    <button (click)="onTimeFilterChange('30min')">Últimos 30 min</button>
-</div>
-<ngx-gauge 
-           [value]="gaugeValue" 
-           [label]="gaugeLabel"  
-           [append]="gaugeAppendText">
-</ngx-gauge>
-<div echarts [options]="chartOption" class="demo-chart"></div>
+<div class="container">
+    <!-- Botão para adicionar novo sensor -->
+    
+    <div class="add-sensor">
+      <!-- <button (click)="createSensor()">Add new todo</button> -->
+    </div>
+   
+  
+    <ul class="sensor-list">
+      <li *ngFor="let sensor of sensors" class="sensor-item">
+        <div class="sensor-info">
+          <h2 class="sensor-id">{{ sensor.id }}</h2>
+          <h3 class="sensor-id">{{ sensor.statusHealth }}</h3>
+        </div>
+  
+        <ngx-gauge 
+          [value]="sensor.currentWaterLevel"
+          [label]="gaugeLabel"
+          [append]="gaugeAppendText"
+          [max]="sensor.supportedVolume"
+          [thick]="15"
+          [thresholds]="gaugeThresholds"
+          class="sensor-gauge">
+        </ngx-gauge>
+  
+        <div echarts [options]="chartOption" class="sensor-chart"></div>
+      </li>
+    </ul>
+  </div>
+  
