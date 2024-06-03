@@ -1,0 +1,36 @@
+/* dashboard-map.component.css */
+.dashboard-map {
+    display: flex;
+    height: 100vh; /* Ocupa toda a altura da viewport */
+  }
+  
+  .dashboard-map__left,
+  .dashboard-map__right {
+    flex: 1;
+    overflow-y: auto; /* Permite rolagem se o conteúdo for maior que a altura da viewport */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .dashboard-map__left {
+    background-color: #FBFDFE; /* Cor de fundo para o dashboard */
+  }
+  
+  .dashboard-map__right {
+    background-color: #FBFDFE; /* Cor de fundo para o mapa */
+    border-left: 1px solid #e0e0e0; /* Linha divisória */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .chart {
+    margin-bottom: 20px;
+    background: #FBFDFE;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  

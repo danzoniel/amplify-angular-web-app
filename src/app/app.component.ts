@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TodosComponent } from './todos/todos.component';
+import { CommonModule } from '@angular/common';
+import { DashboardMapComponent } from './dashboard-map/dashboard-map.component';
+import { AmplifyAuthenticatorModule, AuthenticatorService } from '@aws-amplify/ui-angular';
 import { Amplify } from 'aws-amplify';
 import outputs from '../../amplify_outputs.json';
-import { AmplifyAuthenticatorModule, AuthenticatorService } from '@aws-amplify/ui-angular';
 
 Amplify.configure(outputs);
 
@@ -11,11 +12,12 @@ Amplify.configure(outputs);
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [RouterOutlet, TodosComponent, AmplifyAuthenticatorModule],
+  styleUrls: ['./app.component.css'],
+  imports: [CommonModule, RouterOutlet, AmplifyAuthenticatorModule, DashboardMapComponent],
 })
 export class AppComponent {
   title = 'amplify-angular-template';
+    
   constructor(public authenticator: AuthenticatorService) {
     Amplify.configure(outputs);
   }

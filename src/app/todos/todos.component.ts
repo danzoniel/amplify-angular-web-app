@@ -8,7 +8,7 @@ const client = generateClient<Schema>();
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule],
+  imports:  [CommonModule],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })

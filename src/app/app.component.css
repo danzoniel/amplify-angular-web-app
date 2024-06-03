@@ -1,4 +1,7 @@
-[data-amplify-authenticator] {
-    --amplify-components-authenticator-router-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --amplify-components-button-primary-background-color: #ffffff; /* Botões brancos */
-}
+:host {
+    --height: 100vh;
+  
+    display: block;
+    height: var(--height);
+    background-color: var(--background-color);
+  }
