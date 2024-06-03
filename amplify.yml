@@ -1,6 +1,11 @@
 version: 1
 backend:
   phases:
+    preBuild:
+      commands:
+        - nvm install 18.19.1
+        - nvm use 18.19.1
+        - npm install -g @angular/cli
     build:
       commands:
         - npm ci --cache .npm --prefer-offline
