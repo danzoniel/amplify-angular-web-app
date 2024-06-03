@@ -14,7 +14,7 @@
 .sensor-item {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os elementos */
+  align-items: center; 
   margin-bottom: 30px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -28,9 +28,9 @@
 
 .sensor-id {
   font-weight: bold;
-  font-size: 1.5em; /* Aumenta o tamanho do texto */
-  color: #2c3e50; /* Cor do texto */
-  text-align: center; /* Centraliza o texto */
+  font-size: 1.5em; 
+  color: #2c3e50; 
+  text-align: center; 
   margin: 0;
 }
 

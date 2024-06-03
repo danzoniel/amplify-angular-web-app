@@ -21,9 +21,8 @@ const client = generateClient<Schema>();
 export class AppChartComponent implements OnInit, OnDestroy {
   sensors: any[] = [];
   private updateInterval: any;
-  gaugeValue = 70;  // Valor inicial do gauge
+  gaugeValue = 70; 
 
-  // Dados do gráfico de linha
   lineChartData: number[] = [];
 
   constructor() {}
